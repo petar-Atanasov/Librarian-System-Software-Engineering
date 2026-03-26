@@ -34,7 +34,7 @@ This project includes a simple data set file, **`library_books.csv`**, which is 
 
 ## Project Explained
 
-When the program startsm it ask the librarian to enter a file name for the book dataset**(in our scenario is hardcoded)**. It then opens that CSV file, reads the records, extracts the book information, and creates in-memory book objects.
+When the program startsm it ask the librarian to enter a file name for the book dataset. It then opens that CSV file, reads the records, extracts the book information, and creates in-memory book objects.
 
 After that, it prompts for librarian verification and displays a menu for the main actions.
 
@@ -111,3 +111,54 @@ If book is overdue, the system applies the corsework rule:
 ```
 
 Those are ones of the main business rules implemented in the project.
+
+## Unit Testing with Catch2 
+
+The repository also icludes **Catch2-based unit testing**.
+
+The test files checks the behaivour of the main classes:
+
+- `Person`
+- `Member`
+- `Book`
+- `Librarian`
+
+## Project Structure
+```
+Librarian Manage System
+
+|
+|--- main.cpp                     # Entry point and menu logic
+|--- person.h / person.cpp        # Base class and validation logic
+|--- member.h / member.cpp        # Member class and borrowed books handling
+|--- book.h / book.cpp            # Book class and borrowing state
+|--- librarian.h / librarian.cpp  # Core library operations
+|--- test.cpp                     # Catch2 unit tests
+|--- catch.hpp                    # Catch2 testing framework
+|--- library_books.csv            # Sample dataset
+|--- makefile                     # Build configuration
+```
+
+## How to Run the Project
+
+Clone the repository and move into the project folder:
+```
+git clone https://github.com/petar-Atanasov/Librarian-System-Software-Engineering.git
+cd Librarian-System-Software-Engineering/"Librarian Manage System"
+```
+
+Build the project:
+```
+make
+```
+
+Run the program:
+```
+./main.cpp
+```
+When prompted, enter the dataset file name:
+```
+library_books.csv
+```
+
+The program will then load the dataset, verify librarian details, and display the main menu.
